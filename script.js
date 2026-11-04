@@ -21,6 +21,7 @@
     generation++;
     input.value = '';
     if (unlocked) {
+      window.dispatchEvent(new Event('vault:lock'));
       stage.hidden = true;
       for (const url of mediaUrls) URL.revokeObjectURL(url);
       stage.replaceChildren();
