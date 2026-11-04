@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' blob:; style-src 'self' 'unsafe-inline'; img-src data: blob:; media-src data: blob:; font-src 'none'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; worker-src 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <title>Private Vault</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <script src="encrypted-vault.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main id="lock-screen" class="lock-screen">
+    <form id="unlock-form" class="vault-card" autocomplete="off">
+      <div aria-hidden="true" class="lock-symbol">🔒</div>
+      <h1>Private Vault</h1>
+      <p>Enter the passphrase shared with you privately.</p>
+      <label for="passphrase">Passphrase</label>
+      <input id="passphrase" type="password" required maxlength="512" autocomplete="off" autocapitalize="none" spellcheck="false">
+      <button id="unlock-button" type="submit">Unlock</button>
+      <p id="vault-status" role="status" aria-live="polite">Your passphrase is never saved by this site.</p>
+      <p class="privacy-note">Locks when hidden or after 5 minutes without activity. Downloaded images stay on your device.</p>
+    </form>
+  </main>
+  <div id="scrapbook-stage" hidden></div>
+</body>
+</html>
