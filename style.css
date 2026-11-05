@@ -1,28 +1,36 @@
 * { box-sizing: border-box; }
-body { margin: 0; background: #faf6f0; color: #3f3335; font: 16px/1.6 system-ui, sans-serif; }
+body { margin: 0; background: #faf7f0; color: #3f333a; font: 16px/1.6 system-ui, sans-serif; }
 .lock-screen { min-height: 100svh; display: grid; place-items: center; padding: 24px; }
-.vault-card { width: min(100%, 430px); background: #fffdf9; padding: 32px; border: 1px solid #ead8d3; border-radius: 24px; box-shadow: 0 18px 60px #b85d6720; }
+.vault-card { width: min(100%, 430px); background: #fefdfa; padding: 32px; border: 1px solid #ead3d8; border-radius: 24px; box-shadow: 0 18px 60px #b85d7220; }
 .vault-card h1 { margin: 8px 0; }
 .lock-symbol { font-size: 40px; }
 .vault-card label { display: block; font-weight: 600; margin-top: 24px; }
-.vault-card input { width: 100%; font: inherit; padding: 12px; border: 1px solid #a87c78; border-radius: 8px; }
-.vault-card button { width: 100%; border: 0; border-radius: 8px; background: #994452; color: white; padding: 13px; font: inherit; cursor: pointer; margin-top: 16px; }
+.vault-card input { width: 100%; font: inherit; padding: 12px; border: 1px solid #a87883; border-radius: 8px; }
+.vault-card button { width: 100%; border: 0; border-radius: 8px; background: #994458; color: white; padding: 13px; font: inherit; cursor: pointer; margin-top: 16px; }
 .vault-card button:disabled { opacity: .6; cursor: wait; }
 .privacy-note { font-size: 13px; color: #6c5a60; }
 [hidden] { display: none !important; }
 
 /* The public entrance stays anonymous. */
-body { background: radial-gradient(ellipse at 10% 5%,#f8d8e8,transparent 50%),radial-gradient(ellipse at 100% 90%,#ddd6f7,transparent 50%),#fff6ed; }
-.vault-card { position: relative; padding: 40px 32px 30px; border-radius: 26px; border-color: #e7ccde; box-shadow: 0 25px 80px #70466f1a; }
-.vault-card::before { content: ''; position: absolute; top: -11px; left: calc(50% - 45px); width: 90px; height: 22px; background: #d8c3e9cc; transform: rotate(-4deg); }
+body { background: radial-gradient(ellipse at 10% 5%,#f2dee3,transparent 50%),radial-gradient(ellipse at 100% 90%,#f1dce1,transparent 50%),#fcf8f0; }
+.vault-card { position: relative; padding: 40px 32px 30px; border-radius: 26px; border-color: #e7ccd2; box-shadow: 0 25px 80px #7046501a; }
+.vault-card::before { content: ''; position: absolute; top: -11px; left: calc(50% - 45px); width: 90px; height: 22px; background: #e7c5cdcc; transform: rotate(-4deg); }
 .lock-symbol { margin-bottom: 14px; }
 .vault-card h1 { font-family: Georgia,serif; font-weight: 400; font-size: 34px; letter-spacing: -1px; }
-.vault-card button { background: linear-gradient(110deg,#ab3c6b,#825399); }
-.vault-card input:focus-visible { outline: 3px solid #bf99d9; outline-offset: 3px; }
+.vault-card button { background: linear-gradient(110deg,#ab3c56,#995363); }
+.vault-card input:focus-visible { outline: 3px solid #d999a8; outline-offset: 3px; }
 
 /* The anonymous entrance uses the same Viva Magenta palette. */
-body { background:radial-gradient(ellipse at 5% 5%,#efc3d2,transparent 50%),radial-gradient(ellipse at 100% 90%,#e8d9e3,transparent 50%),#fff7ef; }
-.vault-card { border-color:#e4bdcb; box-shadow:0 25px 80px #8c27451b; }
-.vault-card::before { background:#ddacbdcc; }
+body { background:radial-gradient(ellipse at 5% 5%,#e9c9d0,transparent 50%),radial-gradient(ellipse at 100% 90%,#e8d9dc,transparent 50%),#fff7ef; }
+.vault-card { border-color:#e4bdc6; box-shadow:0 25px 80px #8c273f1b; }
+.vault-card::before { background:#ddacb7cc; }
 .vault-card button { background:linear-gradient(110deg,#bb2649,#8e193e); }
 .vault-card input:focus-visible { outline-color:#bb2649; }
+
+:root { --vm-primary:#bb2649; --vm-dark:#8e193e; --vm-plum:#44172e; --vm-ivory:#fff8f0; --vm-blush:#f7dce5; --vm-border:#dfb5c5; }
+body { background:radial-gradient(ellipse at 5% 5%,#edbed0,transparent 50%),radial-gradient(ellipse at 100% 90%,#e7d4de,transparent 50%),var(--vm-ivory); color:var(--vm-plum); }
+.vault-card { background:#fffaf3; border-color:var(--vm-border); box-shadow:0 25px 80px #8e193e1c; }
+.vault-card h1,.vault-card label { color:var(--vm-plum); }
+.vault-card input { background:#fffdf8; color:var(--vm-plum); border-color:#bc879f; }
+.vault-card button { background:linear-gradient(110deg,var(--vm-primary),var(--vm-dark)); color:#fff8f0; }
+.vault-card input:focus-visible { outline-color:var(--vm-primary); }
