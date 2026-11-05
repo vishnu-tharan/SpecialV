@@ -13,6 +13,26 @@
   let failures = 0;
   let runtimeUrl;
   const mediaUrls = [];
+  // Theme is kept only for this visit; it never stores credentials or content.
+  function applyTheme() {
+    const light = document.body.dataset.theme === 'light';
+    const boldStyle = document.getElementById('vault-theme-bold');
+    const lightStyle = document.getElementById('vault-theme-light');
+    if (boldStyle) boldStyle.disabled = light;
+    if (lightStyle) lightStyle.disabled = !light;
+    document.querySelectorAll('[data-theme-toggle]').forEach(control => {
+      control.textContent = light ? '◐ Magenta theme' : '◐ Light theme';
+      control.setAttribute('aria-pressed', String(light));
+      control.setAttribute('aria-label', light ? 'Use the new bold Magenta theme' : 'Use the previous light theme');
+    });
+  }
+  document.body.dataset.theme = 'magenta';
+  document.addEventListener('click', event => {
+    if (!event.target.closest('[data-theme-toggle]')) return;
+    document.body.dataset.theme = document.body.dataset.theme === 'light' ? 'magenta' : 'light';
+    applyTheme();
+    window.dispatchEvent(new Event('vault:theme'));
+  });
   function prepareAudio() {
     // Resume during the actual Unlock gesture, before asynchronous decryption.
     // The context remains silent until the correct password releases the audio.
@@ -96,9 +116,15 @@
       finally { new Uint8Array(clear).fill(0); }
       if (attempt !== generation || document.hidden) throw new Error('Cancelled');
       const style = document.createElement('style');
+      style.id = 'vault-theme-bold';
       style.textContent = payload.css;
       document.head.appendChild(style);
+      const lightStyle = document.createElement('style');
+      lightStyle.id = 'vault-theme-light';
+      lightStyle.textContent = payload.lightCss;
+      document.head.appendChild(lightStyle);
       stage.innerHTML = payload.html;
+      applyTheme();
       for (const item of payload.media || []) {
         mediaUrls.push(URL.createObjectURL(new Blob([bytes(item.bytes)], {type:item.type})));
       }
