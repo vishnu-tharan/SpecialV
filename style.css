@@ -19,3 +19,10 @@ body { background: radial-gradient(ellipse at 10% 5%,#f8d8e8,transparent 50%),ra
 .vault-card h1 { font-family: Georgia,serif; font-weight: 400; font-size: 34px; letter-spacing: -1px; }
 .vault-card button { background: linear-gradient(110deg,#ab3c6b,#825399); }
 .vault-card input:focus-visible { outline: 3px solid #bf99d9; outline-offset: 3px; }
+
+/* The anonymous entrance uses the same Viva Magenta palette. */
+body { background:radial-gradient(ellipse at 5% 5%,#efc3d2,transparent 50%),radial-gradient(ellipse at 100% 90%,#e8d9e3,transparent 50%),#fff7ef; }
+.vault-card { border-color:#e4bdcb; box-shadow:0 25px 80px #8c27451b; }
+.vault-card::before { background:#ddacbdcc; }
+.vault-card button { background:linear-gradient(110deg,#bb2649,#8e193e); }
+.vault-card input:focus-visible { outline-color:#bb2649; }
